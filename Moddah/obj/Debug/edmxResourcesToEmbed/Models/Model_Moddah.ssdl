@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Moddah_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GestID" Type="bigint" />
+    <Property Name="PlaceID" Type="bigint" />
+    <Property Name="TimeFrom" Type="date" />
+    <Property Name="TimeTo" Type="date" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Guest">
+    <Key>
+      <PropertyRef Name="GuestID" />
+    </Key>
+    <Property Name="GuestID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Labguages" Type="nvarchar" MaxLength="100" />
+    <Property Name="NationalityID" Type="bigint" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Hosts">
+    <Key>
+      <PropertyRef Name="HostID" />
+    </Key>
+    <Property Name="HostID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HostName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Enabled" Type="bit" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="SSN" Type="nvarchar" MaxLength="50" />
+    <Property Name="NationalityID" Type="bigint" />
+    <Property Name="PhotoURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="RegistrationDate" Type="date" />
+    <Property Name="Languages" Type="nvarchar" MaxLength="100" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Path" Type="nvarchar(max)" />
+    <Property Name="PlaceID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Inbox">
+    <Key>
+      <PropertyRef Name="InboxID" />
+    </Key>
+    <Property Name="InboxID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromUserID" Type="bigint" />
+    <Property Name="ToUserID" Type="bigint" />
+    <Property Name="DateofMessage" Type="datetime" />
+    <Property Name="Subject" Type="nvarchar(max)" />
+    <Property Name="BodyofMessage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="NationalityID" />
+    </Key>
+    <Property Name="NationalityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Place">
+    <Key>
+      <PropertyRef Name="PlaceID" />
+    </Key>
+    <Property Name="PlaceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HostID" Type="bigint" />
+    <Property Name="PlaceTypeID" Type="bigint" />
+    <Property Name="Location" Type="nvarchar" MaxLength="200" />
+    <Property Name="NightPrice" Type="nvarchar" MaxLength="50" />
+    <Property Name="Detailes" Type="text" />
+    <Property Name="IsTure" Type="bit" />
+    <Property Name="CityID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PlaceType">
+    <Key>
+      <PropertyRef Name="PlaceTypeID" />
+    </Key>
+    <Property Name="PlaceTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Replies">
+    <Key>
+      <PropertyRef Name="ReplyID" />
+    </Key>
+    <Property Name="ReplyID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InboxID" Type="bigint" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="DateofReply" Type="datetime" />
+    <Property Name="ReplyofMesssage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblAdministrators">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Enabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="ISAdmin" Type="bit" />
+    <Property Name="ISHost" Type="bit" />
+    <Property Name="ISGuest" Type="bit" />
+    <Property Name="Enabled" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="Moddah_DBModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guest" EntityType="Self.Guest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hosts" EntityType="Self.Hosts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inbox" EntityType="Self.Inbox" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nationality" EntityType="Self.Nationality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Place" EntityType="Self.Place" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlaceType" EntityType="Self.PlaceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Replies" EntityType="Self.Replies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAdministrators" EntityType="Self.tblAdministrators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

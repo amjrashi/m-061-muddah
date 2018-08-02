@@ -1,0 +1,56 @@
+﻿@{ 
+    Layout = null;
+}
+
+<div class="alert-info" style="align-content:center;margin:0 auto; max-width:800px">
+
+    <div class="alert" style="background-color:@Request.QueryString["col"];" >
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+         @Request.QueryString["m"]
+    </div>
+   
+</div>
+@{
+    string where = Request.QueryString["w"];
+    string r = Request.QueryString["cont"];
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    window.setTimeout(function () {
+        location.href = location.href = "@Url.Action(where, r)";
+    }, 2000);
+</script>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            .closebtn:hover {
+                color: black;
+            }
+             .alert {
+            padding: 20px;
+
+            color: white;
+            
+        }
+        
+ </style>
+
+   
+
+    

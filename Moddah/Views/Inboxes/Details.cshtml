@@ -1,0 +1,66 @@
+﻿@model Moddah.Models.Inbox
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Inbox</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FromUserID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FromUserID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ToUserID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ToUserID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DateofMessage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DateofMessage)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Subject)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Subject)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BodyofMessage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BodyofMessage)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.InboxID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

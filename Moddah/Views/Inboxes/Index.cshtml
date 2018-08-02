@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Moddah.Models.Inbox>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FromUserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToUserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateofMessage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BodyofMessage)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromUserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToUserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateofMessage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BodyofMessage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.InboxID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.InboxID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.InboxID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
