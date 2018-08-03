@@ -11,7 +11,8 @@ namespace Moddah.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Host
     {
         public long HostID { get; set; }
@@ -26,6 +27,6 @@ namespace Moddah.Models
         public Nullable<System.DateTime> RegistrationDate { get; set; }
         public string Languages { get; set; }
         public string Gender { get; set; }
-        public System.Web.HttpPostedFileBase File { get; set; }
+        public HttpPostedFileBase File { get; set; }
     }
 }

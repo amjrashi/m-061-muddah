@@ -43,6 +43,7 @@
     <Property Name="Labguages" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NationalityID" Type="Int64" />
     <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Host">
     <Key>

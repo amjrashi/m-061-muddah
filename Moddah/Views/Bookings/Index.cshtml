@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Moddah.Models.Booking>
+
+@{
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/theCSS/index.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GestID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaceID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeTo)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GestID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeTo)
+            </td>
+            <td>
+               
+                @Html.ActionLink("Details", "Details", new { id=item.BookingID }) |
+               
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,14 +1,181 @@
-﻿@{
+﻿@model IEnumerable<Moddah.Models.Place>
+@using Moddah.Models;
+@{
+    
     ViewBag.Title = "Home Page";
 }
+<style>
+    .form-control {
+        align-content: center;
+    }
 
-<div class="jumbotron">
+    .tx {
+        width: 130px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 12px;
+        background-color: white;
+        background-image: url('searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+        .tx:focus {
+            width: 100%;
+        }
+        .btn{
+            width:100%;
+            margin:0;
+        }
+        table
+</style>
+
+<script>
+
+    function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+<style>
+    table {
+        border: solid;
+        border-color: white;
+        box-shadow: 5px 5px 5px #999999;
+    }
+    #table1 {
+        border: none;
+        border-color: white;
+        box-shadow: none;
+    }
+    .table{
+        width:200px:
+    }
+</style>
+@*<table class="table table-hover">
+    <tr>
+        <td>
+        </td>
+        <td>
+            <button class="btn btn-default" onclick="myFunction()">بحث search</button>
+        </td>
+    </tr>
+</table>*@
+<script>
+    function show() {
+        document.getElementById('tbl').style.display = 'block';
+    }
+</script>
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+    <div id="myDIV" style="border:solid;border-color: white; border-radius: 10px 10px 10px 10px;align-content:center;padding:10px;">
+        <center>
+            @*<img width="100%" height="2%" src="~/LOGOS/copycopy.png" alt="Alternate Text" />*@
+            <center>
+                <table id="table1"  style="margin:0 auto; width:500px;">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label>المدينة-City</label>
+                                
+                                <div>
+                                    @Html.DropDownList("city", ViewBag.CityList as SelectList, htmlAttributes: new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>نوع السكن- type of place</label>
+                                
+                                <div>
+                                    @Html.DropDownList("placetype", ViewBag.CatList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            @*@Html.TextBox("search", null, htmlAttributes: new { @class = "tx", placeholder = "Search..بحث" })*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input class="btn btn-info" onclick="show()" style="background-color:#999999; border-color:#999999;" type="submit" name="submit" value="بحث" />
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </center>
+    </div>
+}
+
+<table class="table" id="tbl">
+    <tr>
+       
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NightPrice)
+        </th>
+        
+       
+        <th>
+            
+            @Html.DisplayNameFor(model => model.CityID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NightPrice)
+            </td>
+           
+           
+            <td>
+                @{
+                    Moddah_DBEntities db = new Moddah_DBEntities();
+
+                    string city = db.Cities.FirstOrDefault(p => p.CityID == item.CityID).Name;
+                }
+                @city
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.PlaceID }) |*@
+                @Html.ActionLink("Details-تفاصيل ", "DetailsofPlace", "Places", new { id = item.PlaceID },new { @class="btn btn-success"}) 
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.PlaceID })*@
+                @{
+
+
+                }
+                @*@Html.ActionLink("Photos", "Create", "Images", new { id = item.PlaceID }, null)*@
+            </td>
+        </tr>
+                    }
+
+</table>
+
+@*<div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+</div>*@
 
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
@@ -28,4 +195,4 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
-</div>
+</div>*@

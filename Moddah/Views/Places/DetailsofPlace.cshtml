@@ -1,0 +1,91 @@
+﻿@using Moddah.Models;
+@model Moddah.Models.Place
+@{
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+@{
+   
+    Moddah_DBEntities db = new Moddah_DBEntities();
+}
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetailsofPlace</title>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+    <link href="~/theCSS/detailsOfPlace.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <center><table dir="rtl" class="table table-responsive">
+    <tr>
+        <td>اسم المضيف</td>
+        <td>
+            @{
+                string hostname = db.Hosts.FirstOrDefault(p => p.HostID == Model.HostID).HostName;
+            }
+            @hostname
+        </td>
+    </tr>
+    <tr>
+        <td>المدينة</td>
+        <td>
+            @{
+                string cityname = db.Cities.FirstOrDefault(p => p.CityID == Model.CityID).Name;
+            }
+            @cityname
+        </td>
+    </tr>
+    <tr>
+        <td>نوع الشقة</td>
+        <td>
+            @{
+                string placetype = db.PlaceTypes.FirstOrDefault(p => p.PlaceTypeID == Model.PlaceTypeID).Name;
+            }
+            @placetype
+        </td>
+    </tr>
+    <tr>
+        <td>سعر الليلة</td>
+        <td>@Model.NightPrice</td>
+    </tr>
+    <tr>
+        <td>المكان</td>
+        <td>@Model.Location</td>
+    </tr>
+    <tr>
+        <td>تفاصيل</td>
+        <td>@Model.Detailes</td>
+    </tr>
+</table></center>
+  
+  <center><div class="row">
+    <div class="col-md-4">
+        @{
+            string images = db.Images.FirstOrDefault(p => p.PlaceID == Model.PlaceID).Path;
+            string[] imagesList = images.Split(':');
+            foreach (var item in imagesList)
+            {
+                <div class="col-md-4" style="width:300px;height:300px;">
+                    <img width="100%" height="75%" src="~/NewsAttach/@item" />
+                </div>
+
+            }
+        }
+    </div>
+</div></center>
+    
+    <div>
+        <center>@Html.ActionLink("Rent-حجز", "Create", "Bookings", new { id = Model.PlaceID }, new { @class = "btn btn-success" })
+</center>
+    </div>
+    <br/>
+    <br/>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿body {
+    font-family: cursive;
+    margin-right: 20px;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e37f1d;
+    color: white;
+}
+
+#table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button {
+    background-color: white;
+    color: black;
+    border: 2px dotted #999999; /* Gray */
+    padding: 4px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+    .button:hover {
+        background-color: #999999; /* Gray */
+        color: white;
+    }
+
+#new {
+    background-color: white;
+    color: black;
+    border: 2px dotted #999999; /* Gray */
+    padding: 4px;
+    border-radius: 5px;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+    #new:hover {
+        background-color: #999999; /* Gray */
+        color: white;
+    }
+
+    table{
+        width:90%;
+    }

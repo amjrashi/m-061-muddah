@@ -1,7 +1,7 @@
 ﻿@model Moddah.Models.Inbox
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Main.cshtml";
 }
 
 <!DOCTYPE html>
@@ -16,7 +16,8 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    
+
+    <link href="~/theCSS/create.css" rel="stylesheet" />
     <script>
        
         (function () {
@@ -45,13 +46,13 @@
                 </div>
             </div>*@
     
-            @*<div class="form-group">
+            <div class="form-group">
                 @Html.LabelFor(model => model.ToUserID, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ToUserID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.ToUserID, ViewBag.CatList as SelectList, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ToUserID, "", new { @class = "text-danger" })
                 </div>
-            </div>*@
+            </div>
     
             <div class="form-group">
                 @Html.LabelFor(model => model.DateofMessage, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -85,8 +86,6 @@
         </div>
     }
     
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    
 </body>
 </html>

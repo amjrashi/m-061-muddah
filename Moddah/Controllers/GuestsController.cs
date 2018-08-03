@@ -49,7 +49,7 @@ namespace Moddah.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GuestID,Name,Email,Phone,Labguages,NationalityID,Gender")] Guest guest)
+        public ActionResult Create([Bind(Include = "GuestID,Name,Email,Phone,Labguages,NationalityID,Gender,Password")] Guest guest)
         {
             List<Nationality> CatList = db.Nationalities.ToList();
 
@@ -87,7 +87,7 @@ namespace Moddah.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GuestID,Name,Email,Phone,Labguages,NationalityID,Gender")] Guest guest)
+        public ActionResult Edit([Bind(Include = "GuestID,Name,Email,Phone,Labguages,NationalityID,Gender,Password")] Guest guest)
         {
             List<Nationality> CatList = db.Nationalities.ToList();
 

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Moddah.Models.Image>
+
+@{
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title><link href="~/theCSS/index.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Path)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaceID)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Path)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ImageID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ImageID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ImageID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

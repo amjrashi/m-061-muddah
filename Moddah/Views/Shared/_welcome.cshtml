@@ -1,0 +1,39 @@
+﻿
+    @using System.Data.Entity;
+    @using Moddah.Models;
+
+@if (Session["UserID"] != null)
+{
+    
+       
+        Moddah_DBEntities db = new Moddah_DBEntities();
+        
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @{ 
+                    long userid = (long)Session["UserID"];
+                    string nameofPerson = "";
+                    nameofPerson=db.Users.FirstOrDefault(p => p.UserID == userid).Name;
+                    if (nameofPerson==""||nameofPerson==null)
+                    {
+                        nameofPerson=db.Hosts.FirstOrDefault(p => p.HostID == userid).Email;
+                    }
+                }
+                @Html.ActionLink("Hello " + @nameofPerson + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li>@Html.ActionLink("logout","logout", null,"Home")</li>
+        </ul>
+
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Rigister")</li>
+        <li>@Html.ActionLink("Log in تسجيل الدخول", "Login", "Users", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

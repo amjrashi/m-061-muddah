@@ -1,0 +1,25 @@
+﻿body {
+    border-bottom: 2px solid #999999;
+    border-top: 2px solid #999999;
+    width: 960px;
+    align-content: center;
+    position: relative;
+    right: -180px;
+    margin: 20px;
+    font-family: cursive;
+    margin-top: 50px;
+}
+p {
+    background-color: white;
+    color: black;
+    border: 2px dotted #999999; /* Gray */
+    padding: 4px;
+    margin: 5px;
+    width:150px;
+    border-radius: 5px;
+}
+
+    p:hover {
+        background-color: #e37f1d;
+        color: white;
+    }

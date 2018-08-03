@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div> 
+        <center>
+            <div class="row">
+                <div class="col-md-6" >
+                    
+                    <div id="logo">
+                        <a href="@Url.Action("Create", "Guests")">
+                            <img width="50%" height="50%" src="~/LOGOS/guest.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6" >
+                    <div id="logo">
+                        <a href="@Url.Action("Create", "Hosts")">
+                            <img width="50%" height="50%" src="~/LOGOS/Host.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </center>
+        
+    </div>
+</body>
+</html>

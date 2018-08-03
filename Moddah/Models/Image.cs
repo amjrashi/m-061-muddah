@@ -11,11 +11,13 @@ namespace Moddah.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Image
     {
         public long ImageID { get; set; }
         public string Path { get; set; }
         public Nullable<long> PlaceID { get; set; }
+        public IEnumerable<HttpPostedFileBase> Files { get; set; }
     }
 }

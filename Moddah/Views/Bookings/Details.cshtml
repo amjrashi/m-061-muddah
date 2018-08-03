@@ -1,0 +1,59 @@
+﻿@model Moddah.Models.Booking
+
+@{
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/theCSS/details.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h4>Booking</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.GestID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.GestID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PlaceID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PlaceID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TimeFrom)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TimeFrom)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TimeTo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TimeTo)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BookingID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Moddah.Models.Place>
+
+@{
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title><link href="~/theCSS/index.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HostID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaceTypeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NightPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detailes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsTure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CityID)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HostID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NightPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detailes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.PlaceID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.PlaceID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.PlaceID })
+                @{
+
+
+                 }
+                @Html.ActionLink("Photos", "Create","Images", new { id = item.PlaceID },null )
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

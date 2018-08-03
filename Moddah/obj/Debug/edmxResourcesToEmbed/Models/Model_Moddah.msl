@@ -23,6 +23,7 @@
     <EntitySetMapping Name="Guests">
       <EntityTypeMapping TypeName="Moddah_DBModel.Guest">
         <MappingFragment StoreEntitySet="Guest">
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
           <ScalarProperty Name="Labguages" ColumnName="Labguages" />

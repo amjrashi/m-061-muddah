@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Moddah.Models.Host>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Main.cshtml";
 }
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Index</title><link href="~/theCSS/index.css" rel="stylesheet" />
 </head>
 <body>
     <p>
@@ -77,7 +77,8 @@
                 @Html.DisplayFor(modelItem => item.NationalityID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PhotoURL)
+                <img src="~/ProfilePictures/@item.PhotoURL" alt="Alternate Text" />
+                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RegistrationDate)

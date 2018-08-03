@@ -151,14 +151,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\Genders.cs" />
+    <Compile Include="BLL\OurContents.cs" />
     <Compile Include="BLL\PictureClass.cs" />
+    <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\GuestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostsController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\InboxesController.cs" />
     <Compile Include="Controllers\NationalitiesController.cs" />
+    <Compile Include="Controllers\PlacesController.cs" />
     <Compile Include="Controllers\PlaceTypesController.cs" />
+    <Compile Include="Controllers\RigisterController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,6 +222,20 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>Model_Moddah.tt</DependentUpon>
     </Compile>
+    <Compile Include="Muddah.Master.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Muddah.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Muddah.Master.designer.cs">
+      <DependentUpon>Muddah.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MuddahHomePage.aspx.cs">
+      <DependentUpon>MuddahHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MuddahHomePage.aspx.designer.cs">
+      <DependentUpon>MuddahHomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -226,7 +245,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\Center.png" />
     <Content Include="images\Logo.png" />
+    <Content Include="images\logo2.png" />
+    <Content Include="LOGOS\1.png" />
+    <Content Include="LOGOS\2.png" />
+    <Content Include="LOGOS\3.png" />
+    <Content Include="LOGOS\4.png" />
+    <Content Include="LOGOS\5.png" />
+    <Content Include="LOGOS\Ahl.png" />
+    <Content Include="LOGOS\ahl2.png" />
+    <Content Include="LOGOS\copyAhl.png" />
+    <Content Include="LOGOS\copycopy.png" />
+    <Content Include="LOGOS\guest.png" />
+    <Content Include="LOGOS\header.png" />
+    <Content Include="LOGOS\Host.png" />
+    <Content Include="LOGOS\pics.png" />
     <Content Include="Models\Model_Moddah.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model_Moddah.Context.cs</LastGenOutput>
@@ -237,6 +271,7 @@
       <DependentUpon>Model_Moddah.edmx</DependentUpon>
       <LastGenOutput>Model_Moddah.cs</LastGenOutput>
     </Content>
+    <Content Include="MuddahHomePage.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -249,6 +284,7 @@
     <Content Include="Models\Model_Moddah.edmx.diagram">
       <DependentUpon>Model_Moddah.edmx</DependentUpon>
     </Content>
+    <Content Include="Muddah.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -260,6 +296,21 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="SiteImages\1.png" />
+    <Content Include="SiteImages\2.png" />
+    <Content Include="SiteImages\3.png" />
+    <Content Include="SiteImages\4.png" />
+    <Content Include="SiteImages\5.png" />
+    <Content Include="SiteImages\logo.png" />
+    <Content Include="theCSS\create.css" />
+    <Content Include="theCSS\createImage.css" />
+    <Content Include="theCSS\delete.css" />
+    <Content Include="theCSS\details.css" />
+    <Content Include="theCSS\detailsOfPlace.css" />
+    <Content Include="theCSS\edit.css" />
+    <Content Include="theCSS\index.css" />
+    <Content Include="theCSS\Site.css" />
+    <Content Include="Views\Images\logo2.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -312,9 +363,30 @@
     <Content Include="Views\Hosts\Edit.cshtml" />
     <Content Include="Views\Hosts\Index.cshtml" />
     <Content Include="Views\Shared\View_msg.cshtml" />
+    <Content Include="Views\Places\Create.cshtml" />
+    <Content Include="Views\Places\Delete.cshtml" />
+    <Content Include="Views\Places\Details.cshtml" />
+    <Content Include="Views\Places\Edit.cshtml" />
+    <Content Include="Views\Places\Index.cshtml" />
+    <Content Include="Views\Images\Create.cshtml" />
+    <Content Include="Views\Images\Delete.cshtml" />
+    <Content Include="Views\Images\Details.cshtml" />
+    <Content Include="Views\Images\Edit.cshtml" />
+    <Content Include="Views\Images\Index.cshtml" />
+    <Content Include="Views\Shared\_welcome.cshtml" />
+    <Content Include="Views\Rigister\Register.cshtml" />
+    <Content Include="Views\Places\DetailsofPlace.cshtml" />
+    <Content Include="Views\Bookings\Create.cshtml" />
+    <Content Include="Views\Bookings\Delete.cshtml" />
+    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Bookings\Edit.cshtml" />
+    <Content Include="Views\Bookings\Index.cshtml" />
+    <Content Include="Views\Shared\_Main.cshtml" />
+    <Content Include="Views\Bookings\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="NewsAttach\" />
     <Folder Include="ProfilePictures\" />
   </ItemGroup>
   <ItemGroup>

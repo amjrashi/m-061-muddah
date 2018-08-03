@@ -12,12 +12,14 @@ namespace Moddah.Controllers
 {
     public class InboxesController : Controller
     {
+        long comingID = 0;
         private Moddah_DBEntities db = new Moddah_DBEntities();
 
         // GET: Inboxes
-        public ActionResult Index()
+        public ActionResult Index(long to)
         {
-            return View(db.Inboxes.ToList());
+          
+            return View(db.Inboxes.ToList().Where(p=>p.ToUserID==to));
         }
 
         // GET: Inboxes/Details/5
@@ -38,6 +40,9 @@ namespace Moddah.Controllers
         // GET: Inboxes/Create
         public ActionResult Create()
         {
+            List<Host> CatList = db.Hosts.ToList();
+
+            ViewBag.CatList = new SelectList(CatList, "HostID", "HostName");
             return View();
         }
 
@@ -46,10 +51,25 @@ namespace Moddah.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InboxID,DateofMessage,Subject,BodyofMessage")] Inbox inbox)
+        public ActionResult Create([Bind(Include = "InboxID,DateofMessage,Subject,BodyofMessage,ToUserID")] Inbox inbox)
         {
-            inbox.FromUserID = (long)Session["UserID"];
+             comingID= (long)Session["UserID"];
             inbox.ToUserID = 1;
+            //TypeofUser
+            if (Session["TypeofUser"].ToString()=="admin")
+            {
+                inbox.FromUserID = comingID;
+            }else if(Session["TypeofUser"].ToString() == "host")
+            {
+                string mob1 = db.Hosts.FirstOrDefault(p => p.HostID == comingID).Phone;
+                inbox.FromUserID = long.Parse(mob1);
+            }
+            else
+            {
+                string mob2 = db.Guests.FirstOrDefault(p => p.GuestID == comingID).Phone;
+                inbox.FromUserID = long.Parse(mob2);
+            }
+
             if (ModelState.IsValid)
             {
                 db.Inboxes.Add(inbox);

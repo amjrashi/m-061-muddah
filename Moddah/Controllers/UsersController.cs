@@ -37,19 +37,42 @@ namespace Moddah.Controllers
                 if (isadmin)
                 {
                     Session["UserID"] = internalUser.UserID;
-                    return RedirectToAction("Index", "Inboxes");
+                    Session["TypeofUser"] = "admin";
+                    //Response.Redirect("~/MuddahHomePage.aspx");
+                    return RedirectToAction("");
+                }
+            }
+            else
+            {
+                Host host = db.Hosts.FirstOrDefault(p => p.Email == user.Name && p.Password == user.Password);
+                if (host != null)
+                {
+                    Session["UserID"] = host.HostID;
+                    Session["TypeofUser"] = "host";
+                    //Response.Redirect("~/MuddahHomePage.aspx");
+                    return RedirectToAction("Details","Hosts",new { id=host.HostID});
                 }
                 else
                 {
-                    Session["UserID"] = internalUser.UserID;
-                    return RedirectToAction("Create", "Inboxes");
+                    Guest guest = db.Guests.FirstOrDefault(p => p.Email == user.Name && p.Password == user.Password);
+                    if (guest!=null)
+                    {
+                        Session["UserID"] = guest.GuestID;
+                        Session["TypeofUser"] = "guest";
+                        // Response.Redirect("MuddahHome.aspx");
+                        return RedirectToAction("Details", "Guests", new { id = guest.GuestID });
+                    }
+                    else { return RedirectToAction("View_msg", new { m = "User name or password not correct-اسم مستخدم او كلمة مرور غير صحيحة", cont = "Users", col = "Red", w = "Login" });
+ }
                 }
-
             }
             return View(db.Users.ToList());
         }
 
-
+        public ActionResult View_msg()
+        {
+            return View();
+        }
         //=====================================================
 
         // GET: Users/Details/5

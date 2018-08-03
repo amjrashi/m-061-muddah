@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Muddah.Master.cs" Inherits="WebApplication1.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+       {
+            height: 341px;
+            width: 879px;
+        }
+        #xyz {
+            height: 758px;
+            width: 1342px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <%
+
+           // Session["TypeofUser"] = Request.QueryString["TypeofUsers"];
+
+
+            var ut = Session["TypeofUser"].ToString();
+            var url = string.Empty;
+
+            switch (ut)
+            {
+                case "admin":
+                    MultiView1.ActiveViewIndex = 0;
+
+                    break;
+                case "host":
+                    MultiView1.ActiveViewIndex = 1;
+                    break;
+                case "guest":
+                    MultiView1.ActiveViewIndex = 2;
+                    break;
+                default:
+                    break;
+            }
+
+
+
+            
+
+            %>
+        
+        <div>
+            <asp:MultiView ID="MultiView1" runat="server" >
+                <%--Admin Buttons--%>
+                <asp:View ID="View1" runat="server">
+                    <div style="background-color:#e37f1d">
+                        <asp:ImageButton ID="ButtonAdminProfile" runat="server" ImageUrl="~/SiteImages/logo.png" OnClick="ButtonAdminProfile_Click" Width="330" Height="115" />
+                        <asp:ImageButton ID="ButtonAdminIndex" runat="server" ImageUrl="~/SiteImages/4.png" OnClick="ButtonAdminIndex_Click" Height="115" Width="330"/>
+                        <asp:ImageButton ID="ButtonSiteBookingHestory" runat="server" ImageUrl="~/SiteImages/2.png" OnClick="ButtonSiteBookingHestory_Click"/>
+                    </div>
+                </asp:View>
+
+                <%--Host Buttons--%>
+                <asp:View ID="View2" runat="server">
+                     <div style="background-color:#e37f1d">
+                        <asp:ImageButton ID="ImageButtonHostProfile" runat="server" ImageUrl="~/SiteImages/logo.png" OnClick="ImageButtonHostProfile_Click" Width="330" Height="115" />
+                        <asp:ImageButton ID="ImageButtonAddPlace" runat="server" ImageUrl="~/SiteImages/4.png" OnClick="ImageButtonAddPlace_Click" Height="115" Width="330"/>
+                         <asp:ImageButton ID="ImageButtonHostBoockingHestory" runat="server" ImageUrl="~/SiteImages/2.png" OnClick="ImageButtonHostBoockingHestory_Click"/>
+                        <asp:ImageButton ID="ImageButtonHostInbox" runat="server" ImageUrl="~/SiteImages/3.png" OnClick="ImageButtonGeustProfile_Click" Width="330" Height="115"/>
+                    </div>
+                </asp:View>
+
+                <%--Guest Buttons--%>
+                <asp:View ID="View3" runat="server">
+                    <div style="background-color:#e37f1d">
+                        <asp:ImageButton ID="ImageButtonGeustProfile" runat="server" ImageUrl="~/SiteImages/logo.png" OnClick="ImageButtonGeustProfile_Click1" Width="330" Height="115" />
+                        <asp:ImageButton ID="ImageButtonGestInbox" runat="server" ImageUrl="~/SiteImages/4.png" OnClick="ImageButtonGestInbox_Click" Height="115" Width="330"/>
+                        <asp:ImageButton ID="ImageButtonGeustBookingHestory" runat="server" ImageUrl="~/SiteImages/2.png" OnClick="ImageButtonGeustBookingHestory_Click"/>
+                    </div>
+                </asp:View>
+            </asp:MultiView>
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <div style="width:100%; height:100%">
+                    <iframe id="xyz" runat="server"/>
+                </div>
+                
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

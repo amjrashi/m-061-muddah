@@ -1,7 +1,7 @@
 ﻿@model Moddah.Models.Host
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Main.cshtml";
 }
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>Details</title><link href="~/theCSS/details.css" rel="stylesheet" />
 </head>
 <body>
     <div>
@@ -107,8 +107,9 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.HostID }) |
-        @Html.ActionLink("Back to List", "Index")
+       
+        @Html.ActionLink("Add Apartment - اضافة وحده سكنية", "Create","Places")
+        @Html.ActionLink("  تفاصيل الحجوزات", "Index", "Bookings",new { },null)
     </p>
 </body>
 </html>

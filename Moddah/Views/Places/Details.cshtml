@@ -1,0 +1,82 @@
+﻿@model Moddah.Models.Place
+
+@{
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title><link href="~/theCSS/details.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h4>Place</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.HostID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.HostID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PlaceTypeID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PlaceTypeID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NightPrice)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NightPrice)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Detailes)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Detailes)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsTure)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsTure)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CityID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CityID)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PlaceID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

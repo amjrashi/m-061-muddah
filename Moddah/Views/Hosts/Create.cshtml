@@ -1,7 +1,7 @@
 ﻿@model Moddah.Models.Host
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Main.cshtml";
 }
 
 <!DOCTYPE html>
@@ -10,6 +10,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/theCSS/create.css" rel="stylesheet" />
 </head>
 <body>
     @using (Html.BeginForm("Create","Hosts", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -135,8 +137,6 @@
         </div>
     }
     
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    
 </body>
 </html>

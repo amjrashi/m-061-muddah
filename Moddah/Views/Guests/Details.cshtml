@@ -1,9 +1,8 @@
 ﻿@model Moddah.Models.Guest
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Main.cshtml";
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +10,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/theCSS/details.css" rel="stylesheet" />
 </head>
 <body>
     <div>
@@ -69,8 +68,8 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.GuestID }) |
-        @Html.ActionLink("Back to List", "Index")
+        
+        @*@Html.ActionLink("تفاصيل الحجوزات", "Index2","Bookings",new { id=Model.GuestID})*@
     </p>
 </body>
 </html>
